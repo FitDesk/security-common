@@ -1,7 +1,8 @@
-<project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.FitDesk</groupId>
@@ -9,59 +10,67 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>FitDesk Security Commons</name>
-    <description>Shared security annotations and utilities for FitDesk microservices</description>
-    <url>https://github.com/FitDesk/security-common.git</url>
+    <name>FitDesk Security Common</name>
+    <description>Common security annotations for Spring Boot microservices</description>
+    <url>https://github.com/FitDesk/security-common</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>FitDesk Team</name>
+            <email>dev@fitdesk.com</email>
+            <organization>FitDesk</organization>
+            <organizationUrl>https://github.com/FitDesk</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/FitDesk/security-common.git</connection>
+        <developerConnection>scm:git:ssh://github.com:FitDesk/security-common.git</developerConnection>
+        <url>http://github.com/FitDesk/security-common/tree/main</url>
+    </scm>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-security.version>6.4.4</spring-security.version>
-        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
-        <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
-        <maven.javadoc.plugin.version>3.6.0</maven.javadoc.plugin.version>
+        <spring.security.version>6.3.1</spring.security.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>${spring-security.version}</version>
+            <version>${spring.security.version}</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/FitDesk/security-common</url>
-        </repository>
-        <snapshotRepository>
-            <id>github</id>
-            <url>https://maven.pkg.github.com/FitDesk/security-common</url>
-        </snapshotRepository>
-    </distributionManagement>
-
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version}</version>
+                <version>3.13.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>11</source>
+                    <target>11</target>
+                    <release>11</release>
                 </configuration>
             </plugin>
 
-            <!-- Source Plugin -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>${maven.source.plugin.version}</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -72,11 +81,11 @@
                 </executions>
             </plugin>
 
-            <!-- Javadoc Plugin -->
+            <!-- ✅ Plugin para generar Javadoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven.javadoc.plugin.version}</version>
+                <version>3.8.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -86,11 +95,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <source>21</source>
+                    <source>11</source>
                     <detectJavaApiLink>false</detectJavaApiLink>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
