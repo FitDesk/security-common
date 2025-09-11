@@ -54,6 +54,14 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub FitDesk Packages</name>
+            <url>https://maven.pkg.github.com/FitDesk/security-common</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -66,8 +74,6 @@
                     <release>11</release>
                 </configuration>
             </plugin>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -81,15 +87,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <!-- ✅ Plugin para generar Javadoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -107,6 +104,14 @@
                     <detectJavaApiLink>false</detectJavaApiLink>
                 </configuration>
             </plugin>
+            <!-- opcional: configura maven-deploy-plugin solo si quieres customizar -->
+            <!--
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-deploy-plugin</artifactId>
+              <version>3.0.0-M1</version>
+            </plugin>
+            -->
         </plugins>
     </build>
 </project>
