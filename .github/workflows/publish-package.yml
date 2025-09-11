@@ -23,7 +23,7 @@ jobs:
           java-version: '21'
           server-id: github
           server-username: GITHUB_ACTOR
-          server-password: ${{ secrets.PUBLISH_TOKEN }}
+          server-password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show version
         run: mvn help:evaluate -Dexpression=project.version -q -DforceStdout
