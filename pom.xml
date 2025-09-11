@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.FitDesk</groupId>
@@ -32,9 +32,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/FitDesk/security-common.git</connection>
-        <developerConnection>scm:git:ssh://github.com:FitDesk/security-common.git</developerConnection>
-        <url>http://github.com/FitDesk/security-common/tree/main</url>
+        <connection>scm:git:https://github.com/FitDesk/security-common.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/FitDesk/security-common.git</developerConnection>
+        <url>https://github.com/FitDesk/security-common</url>
     </scm>
 
     <properties>
@@ -53,14 +53,6 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub FitDesk Packages</name>
-            <url>https://maven.pkg.github.com/FitDesk/security-common</url>
-        </repository>
-    </distributionManagement>
 
     <build>
         <plugins>
@@ -104,14 +96,7 @@
                     <detectJavaApiLink>false</detectJavaApiLink>
                 </configuration>
             </plugin>
-            <!-- opcional: configura maven-deploy-plugin solo si quieres customizar -->
-            <!--
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-deploy-plugin</artifactId>
-              <version>3.0.0-M1</version>
-            </plugin>
-            -->
         </plugins>
     </build>
+
 </project>
