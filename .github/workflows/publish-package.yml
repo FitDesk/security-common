@@ -2,7 +2,7 @@ name: Publish to GitHub Packages
 
 on:
   push:
-    branches: [ main ]
+    tags: [ 'v*.*.*' ]
   release:
     types: [published]
 
@@ -14,20 +14,19 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up JDK 21 and Maven auth (GitHub Packages)
+      - name: Set up JDK and Maven auth (GitHub Packages)
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
           server-id: github
           server-username: GITHUB_ACTOR
-          server-password: ${{ secrets.GITHUB_TOKEN }}
+          server-password: ${{ secrets.PUBLISH_TOKEN }}
 
-      - name: Show current version (sanity)
+      - name: Show version
         run: mvn help:evaluate -Dexpression=project.version -q -DforceStdout
 
-      - name: Build and deploy security-common to GitHub Packages
+      - name: Build and deploy
         run: mvn -B -DskipTests clean deploy
